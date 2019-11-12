@@ -1,9 +1,12 @@
 import React from 'react';
 
-function SearchLine() {
+function SearchLine(props) {
+
+    const { value, valueChange } = props;
+
     return (
         <div>
-            <input type="text" />
+            <input type="text" value = {value} onChange = {valueChange}/>
         </div>
     );
 }
