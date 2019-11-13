@@ -1,9 +1,10 @@
 import React from 'react';
+import './textBlock.css';
 
 function TextBlock(props) {
     const { outputText } = props;
     return (
-        <div dangerouslySetInnerHTML={{__html: outputText}}/>
+        <div className="textBlock" dangerouslySetInnerHTML={{__html: outputText}}/>
     );
 }
 

@@ -1,12 +1,13 @@
 import React from 'react';
+import './searchLine.css';
 
 function SearchLine(props) {
 
     const { value, valueChange } = props;
 
     return (
-        <div>
-            <input type="text" value = {value} onChange = {valueChange}/>
+        <div className="searchLine">
+            <input className="inputText" type="text" value = {value} onChange = {valueChange} placeholder="Search..."/>
         </div>
     );
 }

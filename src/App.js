@@ -12,9 +12,7 @@ class App extends Component {
     outputText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quas odio dolores? Id corporis ad aspernatur alias nesciunt quas, asperiores in sit tempore itaque ipsam debitis fuga dolores illum! Eaque, atque id! Accusamus vitae corporis cum architecto sed eius excepturi atque. Accusamus quae nemo harum aspernatur iure molestiae facere repudiandae. Sint sapiente, officia consectetur praesentium incidunt autem necessitatibus! Impedit officiis eligendi autem porro at, quia doloremque laudantium rem! Aliquid quibusdam repellendus quis assumenda aspernatur. Quae voluptatem quaerat nesciunt asperiores, expedita quam necessitatibus magni optio eveniet sapiente eos eligendi. Molestiae minus minima eos amet soluta voluptatibus unde tempore quae. Officia, obcaecati.Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quas odio dolores? Id corporis ad aspernatur alias nesciunt quas, asperiores in sit tempore itaque ipsam debitis fuga dolores illum! Eaque, atque id! Accusamus vitae corporis cum architecto sed eius excepturi atque. Accusamus quae nemo harum aspernatur iure molestiae facere repudiandae. Sint sapiente, officia consectetur praesentium incidunt autem necessitatibus! Impedit officiis eligendi autem porro at, quia doloremque laudantium rem! Aliquid quibusdam repellendus quis assumenda aspernatur. Quae voluptatem quaerat nesciunt asperiores, expedita quam necessitatibus magni optio eveniet sapiente eos eligendi. Molestiae minus minima eos amet soluta voluptatibus unde tempore quae. Officia, obcaecati.'
   };
 
-  valueChange = (e) => {
-    console.log(e.target.value);
-    
+  valueChange = (e) => {    
     this.setState(
       { inputValue: e.target.value },
       this.searchSubStr
@@ -24,13 +22,13 @@ class App extends Component {
   searchSubStr = () => {
     const { originalText } = this.state;
 
-    let strInputValRep = this.state.inputValue.replace(' ', '|')
+    let strInputValRep = this.state.inputValue.trim().replace(/ /g, '|');
 
     let rExp = new RegExp(strInputValRep, "gi");
 
     let subOutputText = originalText.split(' ');
     let arrText = subOutputText.map((el) => {
-      return el.replace(rExp, (match) => `<span>${match}</span>`);
+      return el.replace(rExp, (match) => `<span class="alert">${match}</span>`);
     });
     this.setState({outputText: arrText.join(' ')});
   };
